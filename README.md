@@ -1,4 +1,10 @@
-ploath
+Ploath
 ======
 
-Ploath source files
+## Mission statement
+
+## Requirements
+
+## How to contribute
+
+## About
