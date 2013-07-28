@@ -185,6 +185,13 @@
 			s.parentNode.insertBefore(g,s)}(document,'script'));
 		</script>
 
+		<!-- CDN -->
+		<script src="https://cdn.firebase.com/v0/firebase.js"></script>
+		<script type="text/javascript">
+			var myDataRef = new Firebase('https://ploath.firebaseio.com/users');
+			console.log(myDataRef);
+		</script>
+
 		<!-- build:js(.tmp) scripts/main.js -->
 		<script src="scripts/main.js"></script>
 		<!-- endbuild -->
