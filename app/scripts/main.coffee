@@ -1,6 +1,5 @@
 myapp = angular.module('myapp', ['firebase'])
 myapp.controller('MyCtrl', ['$scope', 'angularFire', ($scope, angularFire) ->
-
 	dbRef = new Firebase('https://ploath.firebaseio.com/')
 
 	# authentication handler
@@ -20,7 +19,7 @@ myapp.controller('MyCtrl', ['$scope', 'angularFire', ($scope, angularFire) ->
 	# login handler
 	$('.login').click (e) ->
 		auth.login 'facebook', {remember_me: true}
-		return e.preventDefault
+		return false
 
 	###
 	$('#add').click () ->
