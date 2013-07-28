@@ -43,12 +43,15 @@
         }
       }
 
-      .songs .icon-align-justify:hover {
-      	cursor: move;
+      .songs li .icon-align-justify, .songs li .icon-remove {
+      	visibility: hidden;
+      	position: absolute;
+      	display: block;
+      	width: 100px;
       }
 
-      .songs .icon-remove {
-      	opacity: .2;
+      .add-song .input-append {
+      	width: 100%;
       }
 
     </style>
@@ -81,31 +84,23 @@
 		<div class="container-fluid">
 			<div class="row-fluid">
 				<div class="span3">
+					<h4 class="clearfix">
+						Summerjam 2013
+						<a class="btn btn-mini pull-right" href="#"><i class="icon-edit"></i> Edit</a>
+					</h4>
 					<div class="well sidebar-nav">
 						<ul class="nav nav-list songs">
-							<li class="nav-header">Summerjam 2013</li>
 							<li class="clearfix">
-								<a href="#" class="pull-left"><i class="icon-remove pull-left"></i> <strong>Samson &amp; Gert</strong> - Voetballen</a>
-								<i class="icon-align-justify pull-right"></i>
-							</li>
-							<li class="clearfix">
-								<a href="#" class="pull-left"><i class="icon-remove pull-left"></i> <strong>Samson &amp; Gert</strong> - Voetballen</a>
-								<i class="icon-align-justify pull-right"></i>
-							</li>
-							<li class="clearfix">
-								<a href="#" class="pull-left"><i class="icon-remove pull-left"></i> <strong>Samson &amp; Gert</strong> - Voetballen</a>
-								<i class="icon-align-justify pull-right"></i>
-							</li>
-							<li class="clearfix">
-								<a href="#" class="pull-left"><i class="icon-remove pull-left"></i> <strong>Samson &amp; Gert</strong> - Voetballen</a>
-								<i class="icon-align-justify pull-right"></i>
+								<i class="icon-remove"></i>
+								<i class="icon-align-justify"></i>
+								<a href="#"> <strong>Rhye</strong> - 3 days</a>
 							</li>
 						</ul>
 					</div>
-					<form>
+					<form class="add-song">
 						<div class="input-append">
 							<legend>Add song</legend>
-							<input placeholder="Paste the link here…" id="appendedInputButton" type="text">
+							<input placeholder="Paste the link here…" id="appendedInputButton" type="text" class="span10" />
 							<button class="btn" type="button">Add</button>
 						</div>
 					</form>
@@ -114,8 +109,8 @@
 				<div class="span9">
 					<div class="row-fluid">
 						<div class="span12">
-							<h2>Current song</h2>
-							<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+							<h2>Marlon Asher &amp; Leah Rosier - Amsterdam</h2>
+							<iframe width="480" height="360" src="//www.youtube.com/embed/bz_Gtuw061w?rel=0" frameborder="0" allowfullscreen></iframe>
 						</div>
 					</div>
 				</div>
