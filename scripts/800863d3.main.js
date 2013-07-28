@@ -1,1 +1,0 @@
-!function(){var a;a=angular.module("myapp",["firebase"]),a.controller("MyCtrl",["$scope","angularFire",function(a,b){var c,d;d="https://ploath.firebaseio.com/users",c=b(d,a,"users",[]),c.then(function(){a.users.push({username:"superUser"}),console.log("added superUser")})}])}.call(this);
