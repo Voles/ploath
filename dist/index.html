@@ -1,0 +1,200 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+		<title>Ploath</title>
+
+		<!-- Meta -->
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="description" content="Ploath.">
+		<meta name="viewport" content="width=device-width">
+
+		<!-- Stylesheets -->
+		<link type="text/css" rel="stylesheet" href="styles/dee4a27a.main.css">
+		<style type="text/css">
+		/* --- TODO: move inline CSS to a CSS file --- */
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      .navbar .controls li {
+		width: 50px; /* or whatever width you want for items */
+		display: inline-block;
+		float: none;
+		}
+		.navbar .controls {
+		float: none;
+		text-align: center;
+		}
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+
+      .add-song .input-append {
+      	width: 100%;
+      }
+
+      .songs.edit li {
+      	background: url(../images/handle.png) 0 center no-repeat;
+      	padding-left: 15px;
+      }
+
+      .songs.edit li:hover {
+      	cursor: move;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: moz-none;
+		-ms-user-select: none;
+		user-select: none;
+      }
+
+      .songs .remove {
+		padding:0;
+		border:none;
+		background:none;
+      }
+
+
+      .playlist-progress {
+      	position: absolute;
+      	height: 4px;
+		width: 100%;
+		left: 0;
+		top: 0;
+      }
+
+    </style>
+	</head>
+	<body ng-app="myapp">
+
+		<!--[if lt IE 7]>
+		<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+		<![endif]-->
+
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container-fluid">
+					<a class="brand" href="#">Ploath</a>
+					
+					<div class="nav-collapse collapse">
+						<p class="navbar-text pull-right">
+							Logged in as <a href="#" class="navbar-link">Username</a>
+						</p>
+						
+						<ul class="nav">
+							<li class="active"><a href="#">Playlists</a></li>
+							<li><a href="#about">Profile</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span3">
+
+					<!--
+					<form class="add-song">
+						<div class="input-append">
+							<input placeholder="Playlist name" value="Summerjam 2013" type="text" class="span10" />
+							<button class="btn btn-success" type="button">Done</button>
+						</div>
+					</form>
+					
+					<div class="well sidebar-nav">
+						<ul class="nav nav-list songs edit">
+							<li><strong>Rhye</strong> - 3 days <button class="pull-right remove"><i class="icon-remove"></i></button></li>
+							<li><strong>Rhye</strong> - 3 days <button class="pull-right remove"><i class="icon-remove"></i></button></li>
+							<li><strong>Rhye</strong> - 3 days <button class="pull-right remove"><i class="icon-remove"></i></button></li>
+							<li><strong>Rhye</strong> - 3 days <button class="pull-right remove"><i class="icon-remove"></i></button></li>
+							<li><strong>Rhye</strong> - 3 days <button class="pull-right remove"><i class="icon-remove"></i></button></li>
+						</ul>
+					</div>
+
+					<form class="add-song">
+						<div class="input-append">
+							<legend>Add song</legend>
+							<input placeholder="Paste the link here…" id="appendedInputButton" type="text" class="span10" />
+							<button class="btn" type="button">Add</button>
+						</div>
+					</form>
+					-->
+
+					<h4 class="clearfix">
+						Summerjam 2013
+						<a class="btn btn-mini pull-right" href="#"><i class="icon-edit"></i> Edit</a>
+					</h4>
+					<div class="well sidebar-nav">
+						<ul class="nav nav-list songs">
+							<li><a href="#"> <strong>Rhye</strong> - 3 days</a></li>
+							<li class="active"><a href="#"> <strong>Marlon A. &amp; Leah R.</strong> - Amsterdam</a></li>
+							<li><a href="#"> <strong>Rhye</strong> - 3 days</a></li>
+							<li><a href="#"> <strong>Rhye</strong> - 3 days</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="span9">
+					<div class="row-fluid">
+						<div class="span12">
+							<h2>Marlon Asher &amp; Leah Rosier - Amsterdam</h2>
+							<iframe width="480" height="360" src="//www.youtube.com/embed/bz_Gtuw061w?rel=0" frameborder="0" allowfullscreen=""></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="navbar navbar-inverse navbar-fixed-bottom controls">
+			<div class="navbar-inner">
+				<div class="progress playlist-progress">
+					<div class="bar" style="width: 60%"></div>
+				</div>
+				<div class="container-fluid">
+					<div class="nav-collapse collapse text-center">
+						<ul class="nav controls">
+							<li class=""><a href="#"><i class="icon-backward icon-white"></i></a></li>
+							<li class=""><a href="#"><i class="icon-play icon-white"></i></a></li>
+							<li class=""><a href="#"><i class="icon-forward icon-white"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<ul ng-controller="MyCtrl">
+			<li ng-repeat="user in users">{{user.username}}</li>
+		</ul>
+
+		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+		<script>
+			var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+			(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+			g.src='//www.google-analytics.com/ga.js';
+			s.parentNode.insertBefore(g,s)}(document,'script'));
+		</script>
+
+		<!-- CDN -->
+		<script src="https://cdn.firebase.com/v0/firebase.js"></script>
+		<script src="bower_components/angular/angular.js"></script>
+		<script src="bower_components/angular-fire/angularFire.js"></script>
+
+		<script src="scripts/55e1a455.main.js"></script>
+
+	</body>
+</html>
