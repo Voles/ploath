@@ -68,6 +68,15 @@
 		background:none;
       }
 
+
+      .playlist-progress {
+      	position: absolute;
+      	height: 4px;
+		width: 100%;
+		left: 0;
+		top: 0;
+      }
+
     </style>
 	</head>
 	<body>
@@ -133,6 +142,9 @@
 					<div class="well sidebar-nav">
 						<ul class="nav nav-list songs">
 							<li><a href="#"> <strong>Rhye</strong> - 3 days</a></li>
+							<li class="active"><a href="#"> <strong>Marlon A. &amp; Leah R.</strong> - Amsterdam</a></li>
+							<li><a href="#"> <strong>Rhye</strong> - 3 days</a></li>
+							<li><a href="#"> <strong>Rhye</strong> - 3 days</a></li>
 						</ul>
 					</div>
 				</div>
@@ -148,8 +160,11 @@
 			</div>
 		</div>
 
-		<div class="navbar navbar-inverse navbar-fixed-bottom">
+		<div class="navbar navbar-inverse navbar-fixed-bottom controls">
 			<div class="navbar-inner">
+				<div class="progress playlist-progress">
+					<div class="bar" style="width: 60%;"></div>
+				</div>
 				<div class="container-fluid">
 					<div class="nav-collapse collapse text-center">
 						<ul class="nav controls">
