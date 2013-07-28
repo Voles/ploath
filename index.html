@@ -14,10 +14,10 @@
 		<meta name="viewport" content="width=device-width">
 
 		<!-- Stylesheets -->
-		<link type="text/css" rel="stylesheet" href="styles/60d113fe.main.css">
+		<link type="text/css" rel="stylesheet" href="styles/31a64c1c.main.css">
 	</head>
 
-	<body ng-app="myapp">
+	<body ng-app="myapp" ng-controller="MyCtrl">
 
 		<!--[if lt IE 7]>
 		<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
@@ -27,26 +27,25 @@
 			<div class="navbar-inner">
 				<div class="container-fluid">
 					<a class="brand" href="#">Ploath</a>
-					
-					<div class="nav-collapse collapse">
-						<p class="navbar-text pull-right">
-							<a href="#" class="navbar-link login">Login</a>
-						</p>
-						
-						<ul class="nav">
-							<li class="active"><a href="#">Playlists</a></li>
-							<li><a href="#about">Profile</a></li>
-						</ul>
-					</div>
 				</div>
 			</div>
 		</div>
+
+		<!-- Login view
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span12 text-center">
+					<button href="#" class="btn-primary btn-large login"><i class="icon-user icon-white"></i> Login with Facebook</button>
+				</div>
+			</div>
+		</div>
+		-->
 
 		<div class="container-fluid">
 			<div class="row-fluid">
 				<div class="span3">
 
-					<!--
+					<!-- Edit playlist
 					<form class="add-song">
 						<div class="input-append">
 							<input placeholder="Playlist name" value="Summerjam 2013" type="text" class="span10" />
@@ -115,10 +114,6 @@
 			</div>
 		</div>
 
-		<ul ng-controller="MyCtrl">
-			<li ng-repeat="user in users">{{user.username}}</li>
-		</ul>
-
 		<!-- Google Analytics -->
 		<script>
 			var _gaq=[['_setAccount','UA-42791816-1'],['_trackPageview']];
@@ -133,7 +128,7 @@
 
 		<script src="scripts/a327fcef.plugins.js"></script>
 
-		<script src="scripts/79bb9414.main.js"></script>
+		<script src="scripts/964cf53f.main.js"></script>
 
 	</body>
 </html>
