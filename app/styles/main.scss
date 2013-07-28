@@ -2,3 +2,66 @@ $iconSpritePath: "../images/glyphicons-halflings.png";
 $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
 @import 'sass-bootstrap/lib/bootstrap';
+
+
+// TODO: cleanup the messy CSS below
+body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      .navbar .controls li {
+		width: 50px; /* or whatever width you want for items */
+		display: inline-block;
+		float: none;
+		}
+		.navbar .controls {
+		float: none;
+		text-align: center;
+		}
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+
+      .add-song .input-append {
+      	width: 100%;
+      }
+
+      .songs.edit li {
+      	background: url(../images/handle.png) 0 center no-repeat;
+      	padding-left: 15px;
+      }
+
+      .songs.edit li:hover {
+      	cursor: move;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: moz-none;
+		-ms-user-select: none;
+		user-select: none;
+      }
+
+      .songs .remove {
+		padding:0;
+		border:none;
+		background:none;
+      }
+
+
+      .playlist-progress {
+      	position: absolute;
+      	height: 4px;
+		width: 100%;
+		left: 0;
+		top: 0;
+      }
