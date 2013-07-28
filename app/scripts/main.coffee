@@ -21,6 +21,17 @@ myapp.controller('MyCtrl', ['$scope', 'angularFire', ($scope, angularFire) ->
 	$('.login').click (e) ->
 		auth.login 'facebook', {remember_me: true}
 		return e.preventDefault
-		
+
+	###
+	$('#add').click () ->
+		url = dbRef + 'users'
+		promise = angularFire(url, $scope, 'users', []);
+		promise.then () ->
+			$scope.users.push {username:"adsdfsdfddd"}
+			console.log 'added adsdfsfdddddd'
+			return
+		return false
+	###
+
 	return
 ])
