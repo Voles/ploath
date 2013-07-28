@@ -43,15 +43,29 @@
         }
       }
 
-      .songs li .icon-align-justify, .songs li .icon-remove {
-      	visibility: hidden;
-      	position: absolute;
-      	display: block;
-      	width: 100px;
-      }
-
       .add-song .input-append {
       	width: 100%;
+      }
+
+      .songs.edit li {
+      	background: url(../images/handle.png) 0 center no-repeat;
+      	padding-left: 15px;
+      }
+
+      .songs.edit li:hover {
+      	cursor: move;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: moz-none;
+		-ms-user-select: none;
+		user-select: none;
+      }
+
+      .songs .remove {
+		padding:0;
+		border:none;
+		background:none;
       }
 
     </style>
@@ -84,19 +98,25 @@
 		<div class="container-fluid">
 			<div class="row-fluid">
 				<div class="span3">
-					<h4 class="clearfix">
-						Summerjam 2013
-						<a class="btn btn-mini pull-right" href="#"><i class="icon-edit"></i> Edit</a>
-					</h4>
+
+					<!--
+					<form class="add-song">
+						<div class="input-append">
+							<input placeholder="Playlist name" value="Summerjam 2013" type="text" class="span10" />
+							<button class="btn btn-success" type="button">Done</button>
+						</div>
+					</form>
+					
 					<div class="well sidebar-nav">
-						<ul class="nav nav-list songs">
-							<li class="clearfix">
-								<i class="icon-remove"></i>
-								<i class="icon-align-justify"></i>
-								<a href="#"> <strong>Rhye</strong> - 3 days</a>
-							</li>
+						<ul class="nav nav-list songs edit">
+							<li><strong>Rhye</strong> - 3 days <button class="pull-right remove"><i class="icon-remove"></i></button></li>
+							<li><strong>Rhye</strong> - 3 days <button class="pull-right remove"><i class="icon-remove"></i></button></li>
+							<li><strong>Rhye</strong> - 3 days <button class="pull-right remove"><i class="icon-remove"></i></button></li>
+							<li><strong>Rhye</strong> - 3 days <button class="pull-right remove"><i class="icon-remove"></i></button></li>
+							<li><strong>Rhye</strong> - 3 days <button class="pull-right remove"><i class="icon-remove"></i></button></li>
 						</ul>
 					</div>
+
 					<form class="add-song">
 						<div class="input-append">
 							<legend>Add song</legend>
@@ -104,6 +124,17 @@
 							<button class="btn" type="button">Add</button>
 						</div>
 					</form>
+					-->
+
+					<h4 class="clearfix">
+						Summerjam 2013
+						<a class="btn btn-mini pull-right" href="#"><i class="icon-edit"></i> Edit</a>
+					</h4>
+					<div class="well sidebar-nav">
+						<ul class="nav nav-list songs">
+							<li><a href="#"> <strong>Rhye</strong> - 3 days</a></li>
+						</ul>
+					</div>
 				</div>
 
 				<div class="span9">
