@@ -79,7 +79,7 @@
 
     </style>
 	</head>
-	<body>
+	<body ng-app="myapp">
 
 		<!--[if lt IE 7]>
 		<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
@@ -177,6 +177,10 @@
 			</div>
 		</div>
 
+		<ul ng-controller="MyCtrl">
+			<li ng-repeat="user in users">{{user.username}}</li>
+		</ul>
+
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 		<script>
 			var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
@@ -187,10 +191,8 @@
 
 		<!-- CDN -->
 		<script src="https://cdn.firebase.com/v0/firebase.js"></script>
-		<script type="text/javascript">
-			var myDataRef = new Firebase('https://ploath.firebaseio.com/users');
-			console.log(myDataRef);
-		</script>
+		<script src="bower_components/angular/angular.js"></script>
+		<script src="bower_components/angular-fire/angularFire.js"></script>
 
 		<!-- build:js(.tmp) scripts/main.js -->
 		<script src="scripts/main.js"></script>
