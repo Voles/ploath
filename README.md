@@ -1,7 +1,7 @@
 Ploath
 ========================
 
-### Mission statement
+## Mission statement
 Ploath wants to provide a platform where users can easily create playlists containing songs of a variety of services.
 
 ####Our mission is
@@ -9,7 +9,7 @@ Ploath wants to provide a platform where users can easily create playlists conta
 - To stimulate our users to actively collaborate
 - To provide a reliable and performant web application
 
-### Environment setup
+## Environment setup
 ####1. Install Yeoman globally
 
 	$ sudo gem install compass
@@ -23,5 +23,5 @@ Run both commands below in the project root directory.
     
 More info: [yeoman.io](http://yeoman.io/)
 
-### How to contribute (draft)
+## How to contribute (draft)
 Fork this repo.
