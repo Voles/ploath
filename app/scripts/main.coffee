@@ -1,36 +1,22 @@
-myapp = angular.module('myapp', ['firebase'])
-myapp.controller('MyCtrl', ['$scope', 'angularFire', ($scope, angularFire) ->
-	dbRef = new Firebase('https://ploath.firebaseio.com/')
+# application module
+window.app = angular.module('app', ['firebase'])
 
-	# authentication handler
-	auth = new FirebaseSimpleLogin(dbRef, (error, user) ->
-	  if error
-	    console.log error
-	  
-	  else if user
-	    console.log 'User ID: ' + user.id + ', Provider: ' + user.provider
-	  
-	  else
-	    console.log 'User is logged out'
-	    
-	  return
-	)
+# controller
+window.app.controller('MyCtrl', ['$scope', 'angularFire', 'config', 'Users', ($scope, angularFire, config, Users) ->
 
-	# login handler
-	$('.login').click (e) ->
-		auth.login 'facebook', {remember_me: true}
-		return false
+	# test authentication
+	Users.authenticate()
+	
+	promise = angularFire(config.dbRef, $scope, 'users', {})
+	promise.then () ->
+		console.log 'jeet'
+		return
 
-	###
-	$('#add').click () ->
-		url = dbRef + 'users'
-		promise = angularFire(url, $scope, 'users', []);
-		promise.then () ->
-			$scope.users.push {username:"adsdfsdfddd"}
-			console.log 'added adsdfsfdddddd'
-			return
-		return false
-	###
-
+	#Users.referenceVariable
 	return
 ])
+
+# configuration (via http://ericrohlfs.blogspot.nl/2013/03/constants-in-angularjs.html)
+window.app.constant('config', {
+	dbRef: new Firebase('https://ploath.firebaseio.com')
+})
