@@ -72,17 +72,15 @@
 					</form>
 					-->
 
-					<h4 class="clearfix">
-						Summerjam 2013
-						<a class="btn btn-mini pull-right" href="#"><i class="icon-edit"></i> Edit</a>
-					</h4>
-					<div class="well sidebar-nav">
-						<ul class="nav nav-list songs">
-							<li><a href="#"><strong>Rhye</strong> - 3 days</a></li>
-							<li class="active"><a href="#"> <strong>Marlon A. &amp; Leah R.</strong> - Amsterdam</a></li>
-							<li><a href="#"><strong>Rhye</strong> - 3 days</a></li>
-							<li><a href="#"><strong>Rhye</strong> - 3 days</a></li>
-						</ul>
+					<div ng-repeat="(id, playlist) in playlists">
+						<h4 class="clearfix">
+							{{ playlist.name }} <a class="btn btn-mini pull-right" href="#"><i class="icon-edit"></i> Edit</a>
+						</h4>
+						<div class="well sidebar-nav">
+							<ul class="nav nav-list songs">
+								<li ng-repeat="(id, track) in playlist.tracks"><a ng-click="play(id)"><strong>{{ tracks[id].author }}</strong> - {{ tracks[id].title }}</a></li>
+							</ul>
+						</div>
 					</div>
 				</div>
 
@@ -91,10 +89,6 @@
 						<div class="span12">
 							<h2>Marlon Asher &amp; Leah Rosier - Amsterdam</h2>
 							<!--<iframe width="480" height="360" src="//www.youtube.com/embed/bz_Gtuw061w?rel=0" frameborder="0" allowfullscreen></iframe>-->
-							
-							<ul>
-								<li ng-repeat="(key, playlist) in playlists">{{playlist.name}}</li>
-							</ul>
 						</div>
 					</div>
 				</div>

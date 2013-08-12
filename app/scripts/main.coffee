@@ -8,7 +8,14 @@ window.app.controller('MyCtrl', ['$scope', '$rootScope', 'angularFire', 'config'
 	#Users.authenticate()
 	
 	angularFire(config.dbRef + '/playlists', $rootScope, 'playlists', {})
+	angularFire(config.dbRef + '/tracks', $rootScope, 'tracks', {})
 	console.log($rootScope)
+
+	# play
+	$scope.play = (trackId) ->
+		console.log 'Play track with id: ' + trackId
+		return
+		
 	return
 ])
 
