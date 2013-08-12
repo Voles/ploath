@@ -91,10 +91,9 @@
 						<div class="span12">
 							<h2>Marlon Asher &amp; Leah Rosier - Amsterdam</h2>
 							<!--<iframe width="480" height="360" src="//www.youtube.com/embed/bz_Gtuw061w?rel=0" frameborder="0" allowfullscreen></iframe>-->
-
+							
 							<ul>
-								<li ng-repeat="user in user">{{ user }}</li>
-								<li ng-repeat="(username, email) in users">{{username}}: {{email}}</li>
+								<li ng-repeat="(key, playlist) in playlists">{{playlist.name}}</li>
 							</ul>
 						</div>
 					</div>

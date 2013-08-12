@@ -2,17 +2,13 @@
 window.app = angular.module('app', ['firebase'])
 
 # controller
-window.app.controller('MyCtrl', ['$scope', 'angularFire', 'config', 'Users', ($scope, angularFire, config, Users) ->
+window.app.controller('MyCtrl', ['$scope', '$rootScope', 'angularFire', 'config', 'Users', ($scope, $rootScope, angularFire, config, Users) ->
 
 	# test authentication
-	Users.authenticate()
+	#Users.authenticate()
 	
-	promise = angularFire(config.dbRef, $scope, 'users', {})
-	promise.then () ->
-		console.log 'jeet'
-		return
-
-	#Users.referenceVariable
+	angularFire(config.dbRef + '/playlists', $rootScope, 'playlists', {})
+	console.log($rootScope)
 	return
 ])
 
