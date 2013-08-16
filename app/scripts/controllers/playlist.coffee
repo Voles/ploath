@@ -5,4 +5,8 @@ window.app.controller('PlaylistController', ['$scope', 'angularFire', 'config', 
 	$scope.play = (trackId) ->
 		$location.path('/playlists/' + $routeParams.playlistId + '/' + trackId)
 		return
+
+	$scope.add = (playlist) ->
+		PlaylistService.add(playlist)
+		
 ])

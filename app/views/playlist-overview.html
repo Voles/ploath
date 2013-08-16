@@ -3,3 +3,11 @@
 		<li ng-repeat="(id, playlist) in playlists"><a href="#/playlists/{{ id }}">{{ playlist.name }}</a></li>
 	</ul>
 </div>
+
+<!-- Add playlist -->
+<form class="add-song" ng-submit="add(newPlaylist)">
+	<div class="input-append">
+		<input ng-model="newPlaylist.title" placeholder="Playlist name" type="text" class="span10" />
+		<input type="submit" class="btn btn-success" type="button">Add</input>
+	</div>
+</form>
