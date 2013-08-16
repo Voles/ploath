@@ -1,13 +1,13 @@
 window.app.factory('UserService', ['angularFire', 'angularFireCollection', 'config', '$rootScope', 'utilities', (angularFire, angularFireCollection, config, $rootScope, utilities) ->
 
-	$rootScope.user = undefined
-
 	angularFire(config.dbRef + '/users', $rootScope, 'users', {})
-	
+
+	$rootScope.user = undefined
+	clicked = false
+
 	hasAccount = (id) ->
 		return if `typeof $rootScope.users[ id ] === 'undefined'` then false else true
 
-	clicked = false
 	auth = new FirebaseSimpleLogin(config.dbRef, (error, user) ->
 		if !clicked
 			console.log 'not clicked'
@@ -29,19 +29,18 @@ window.app.factory('UserService', ['angularFire', 'angularFireCollection', 'conf
 
 				$rootScope.user = angularFire(config.dbRef + '/users/' + id, $rootScope, 'user', {})
 				return
-
-
+				
 		clicked = false
 		return
 	)
-
-	# workaround, because the users aren't loaded fast enough for the check inside FirebaseSimpleLogin
 
 	UserService = {
 
 		# authentication with facebook
 		performLogin: () ->
+			# clicked is a workaround, because the users aren't loaded fast enough for the check inside FirebaseSimpleLogin
 			clicked = true
+
 			auth.login 'facebook', { remember_me: true }
 			return
 
