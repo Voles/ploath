@@ -42,10 +42,10 @@
 				</div>
 				<div class="container-fluid">
 					<div class="nav-collapse collapse text-center">
-						<ul class="nav controls">
-							<li><a href="#"><i class="icon-backward icon-white"></i></a></li>
-							<li><a href="#"><i class="icon-play icon-white"></i></a></li>
-							<li><a href="#"><i class="icon-forward icon-white"></i></a></li>
+						<ul class="nav controls" ng-controller="ControlsController">
+							<li><a ng-click="previous()"><i class="icon-backward icon-white"></i></a></li>
+							<li><a ng-click="playPause()"><i class="icon-play icon-white"></i></a></li>
+							<li><a ng-click="next()"><i class="icon-forward icon-white"></i></a></li>
 						</ul>
 					</div>
 				</div>
@@ -78,6 +78,7 @@
 		<script src="scripts/controllers/login.js"></script>
 		<script src="scripts/controllers/playlist.js"></script>
 		<script src="scripts/controllers/track.js"></script>
+		<script src="scripts/controllers/controls.js"></script>
 		<!-- endbuild -->
 
 	</body>
