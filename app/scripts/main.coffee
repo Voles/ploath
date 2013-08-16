@@ -7,7 +7,7 @@ window.app.config(['$routeProvider', ($routeProvider) ->
 
 	$routeProvider
 
-	# playlists
+	# playlist overview
 	.when( '/playlists', {
 		controller: 'PlaylistController',
 		templateUrl: 'views/playlist-overview.html'

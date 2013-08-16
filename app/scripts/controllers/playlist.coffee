@@ -1,5 +1,7 @@
-app.controller('PlaylistController', ['$scope', 'angularFire', 'config', 'PlaylistService', ($scope, angularFire, config, PlaylistService) ->
+app.controller('PlaylistController', ['$scope', 'angularFire', 'config', 'PlaylistService', '$routeParams', '$rootScope', ($scope, angularFire, config, PlaylistService, $routeParams, $rootScope) ->
 
-	console.log 'PlaylistController init'
-	
+	playlistId = $routeParams.playlistId
+	angularFire(config.dbRef + '/playlists/' + playlistId, $scope, 'playlist', {})
+
+	return
 ])

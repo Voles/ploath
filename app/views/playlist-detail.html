@@ -27,16 +27,15 @@
 	</form>
 	-->
 
-	<div ng-repeat="(id, playlist) in playlists">
-		<h4 class="clearfix">
-			{{ playlist.name }} <a class="btn btn-mini pull-right" href="#"><i class="icon-edit"></i> Edit</a>
-		</h4>
-		<div class="well sidebar-nav">
-			<ul class="nav nav-list songs">
-				<li ng-repeat="(id, track) in playlist.tracks"><a ng-click="play(id)"><strong>{{ tracks[id].author }}</strong> - {{ tracks[id].title }}</a></li>
-			</ul>
-		</div>
+	<h4 class="clearfix">
+		<a class="btn btn-mini" href="#/playlists"><i class="icon-chevron-left"></i></a> {{ playlist.name }} <a class="btn btn-mini pull-right" href="#"><i class="icon-edit"></i> Edit</a>
+	</h4>
+	<div class="well sidebar-nav">
+		<ul class="nav nav-list songs">
+			<li ng-repeat="(id, track) in playlist.tracks"><a ng-click="play(id)"><strong>{{ tracks[id].author }}</strong> - {{ tracks[id].title }}</a></li>
+		</ul>
 	</div>
+	
 </div>
 
 <div class="span9">
