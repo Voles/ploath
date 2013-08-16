@@ -1,56 +1,31 @@
-window.app.factory('PlaylistService', ['$rootScope', 'config', 'angularFire', ($rootScope, config, angularFire) ->
+window.app.factory('PlaylistService', ['$rootScope', 'config', 'angularFire', 'utilities', ($rootScope, config, angularFire, utilities) ->
 
 	angularFire(config.dbRef + '/playlists', $rootScope, 'playlists', {})
 
-	makeUrlFriendly = (string) ->
-		url = string
-			.toLowerCase() 					# change everything to lowercase
-			.replace(/^\s+|\s+$/g, "") 		# trim leading and trailing spaces		
-			.replace(/[_|\s]+/g, "-") 		# change all spaces and underscores to a hyphen
-			.replace(/[^a-z0-9-]+/g, "") 	# remove all non-alphanumeric characters except the hyphen
-			.replace(/[-]+/g, "-") 			# replace multiple instances of the hyphen with a single instance
-			.replace(/^-+|-+$/g, "") 		# trim leading and trailing hyphens
-
-		return url
-
-	isPlaylistIdUnique = (id) ->
+	idIsUnique = (id) ->
 		return (`typeof $rootScope.playlists[ id ] === 'undefined'`) ? true : false
-	
+
+	generateUniqueName = (string, attempt) ->
+		if !attempt
+			attempt = 1
+		
+		if idIsUnique(string + '-' + attempt)
+			return string + '-' + attempt
+		else
+			generateUniqueName(string, attempt + 1)
+
 	PlaylistService = {
 
 		add: (playlist) ->
-			console.log 'Add'
-			console.log playlist
-			console.log '///'
+			urlFriendlyTitle = utilities.makeUrlFriendly( playlist.name )
+			generatedId = generateUniqueName( urlFriendlyTitle )
 
-			# unique, url-friendly id
-			generate = (urlFriendlyTitle, attempt) ->
-				if !attempt
-					attempt = 1
-					if isPlaylistIdUnique(urlFriendlyTitle)
-						return urlFriendlyTitle
-					else
-						generate(urlFriendlyTitle, attempt + 1)
-				else
-					if isPlaylistIdUnique(urlFriendlyTitle + '-' + attempt)
-						return urlFriendlyTitle + '-' + attempt
-					else
-						generate(urlFriendlyTitle, attempt + 1)
-
-			console.log '###'
-			theName = generate(makeUrlFriendly(playlist.title))
-			$rootScope.playlists[ theName ] = {
-				name: playlist.title,
+			$rootScope.playlists[ generatedId ] = {
+				name: playlist.name,
 				tracks: []
 			}
-			console.log '###'
 
-			###
-			$rootScope.playlists[playlist.title] = {
-				name: playlist.title,
-				tracks: {}
-			}
-			###
+			# TODO: add playlist to the user playlists
 
 			return
 
