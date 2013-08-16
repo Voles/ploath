@@ -19,6 +19,12 @@ window.app.config(['$routeProvider', ($routeProvider) ->
 		templateUrl: 'views/playlist-detail.html'
 	})
 
+	# playlist detail
+	.when( '/playlists/:playlistId/:trackId', {
+		controller: 'PlaylistController',
+		templateUrl: 'views/playlist-detail.html'
+	})
+
 	# login
 	.when({
 		controller: 'LoginController',

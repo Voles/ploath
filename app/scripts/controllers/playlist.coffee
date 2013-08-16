@@ -1,7 +1,8 @@
-app.controller('PlaylistController', ['$scope', 'angularFire', 'config', 'PlaylistService', '$routeParams', '$rootScope', 'TrackService', ($scope, angularFire, config, PlaylistService, $routeParams, $rootScope, TrackService) ->
+window.app.controller('PlaylistController', ['$scope', 'angularFire', 'config', 'PlaylistService', '$routeParams', '$rootScope', 'TrackService', '$location', ($scope, angularFire, config, PlaylistService, $routeParams, $rootScope, TrackService, $location) ->
 
-	playlistId = $routeParams.playlistId
-	angularFire(config.dbRef + '/playlists/' + playlistId, $scope, 'playlist', {})
-
-	return
+	angularFire(config.dbRef + '/playlists/' + $routeParams.playlistId, $scope, 'playlist', {})
+	
+	$scope.play = (trackId) ->
+		$location.path('/playlists/' + $routeParams.playlistId + '/' + trackId)
+		return
 ])
