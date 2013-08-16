@@ -17,7 +17,7 @@
 		<link type="text/css" rel="stylesheet" href="styles/main.css" />
 	</head>
 
-	<body ng-app="app" ng-controller="MyCtrl">
+	<body ng-app="app">
 
 		<!--[if lt IE 7]>
 		<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
@@ -30,69 +30,9 @@
 				</div>
 			</div>
 		</div>
-
-		<!-- Login view
+		
 		<div class="container-fluid">
-			<div class="row-fluid">
-				<div class="span12 text-center">
-					<button href="#" class="btn-primary btn-large login"><i class="icon-user icon-white"></i> Login with Facebook</button>
-				</div>
-			</div>
-		</div>
-		-->
-
-		<div class="container-fluid">
-			<div class="row-fluid">
-				<div class="span3">
-
-					<!-- Edit playlist
-					<form class="add-song">
-						<div class="input-append">
-							<input placeholder="Playlist name" value="Summerjam 2013" type="text" class="span10" />
-							<button class="btn btn-success" type="button">Done</button>
-						</div>
-					</form>
-					
-					<div class="well sidebar-nav">
-						<ul class="nav nav-list songs edit">
-							<li><strong>Rhye</strong> - 3 days <button class="pull-right remove"><i class="icon-remove"></i></button></li>
-							<li><strong>Rhye</strong> - 3 days <button class="pull-right remove"><i class="icon-remove"></i></button></li>
-							<li><strong>Rhye</strong> - 3 days <button class="pull-right remove"><i class="icon-remove"></i></button></li>
-							<li><strong>Rhye</strong> - 3 days <button class="pull-right remove"><i class="icon-remove"></i></button></li>
-							<li><strong>Rhye</strong> - 3 days <button class="pull-right remove"><i class="icon-remove"></i></button></li>
-						</ul>
-					</div>
-
-					<form class="add-song">
-						<div class="input-append">
-							<legend>Add song</legend>
-							<input placeholder="Paste the link here…" id="appendedInputButton" type="text" class="span10" />
-							<button class="btn" type="button">Add</button>
-						</div>
-					</form>
-					-->
-
-					<div ng-repeat="(id, playlist) in playlists">
-						<h4 class="clearfix">
-							{{ playlist.name }} <a class="btn btn-mini pull-right" href="#"><i class="icon-edit"></i> Edit</a>
-						</h4>
-						<div class="well sidebar-nav">
-							<ul class="nav nav-list songs">
-								<li ng-repeat="(id, track) in playlist.tracks"><a ng-click="play(id)"><strong>{{ tracks[id].author }}</strong> - {{ tracks[id].title }}</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
-				<div class="span9">
-					<div class="row-fluid">
-						<div class="span12">
-							<h2>Marlon Asher &amp; Leah Rosier - Amsterdam</h2>
-							<!--<iframe width="480" height="360" src="//www.youtube.com/embed/bz_Gtuw061w?rel=0" frameborder="0" allowfullscreen></iframe>-->
-						</div>
-					</div>
-				</div>
-			</div>
+			<div class="row-fluid" ng-view></div>
 		</div>
 
 		<div class="navbar navbar-inverse navbar-fixed-bottom controls">
@@ -113,13 +53,12 @@
 		</div>
 
 		<!-- Google Analytics -->
-		<!--
 		<script>
 			var _gaq=[['_setAccount','UA-42791816-1'],['_trackPageview']];
 			(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
 			g.src='//www.google-analytics.com/ga.js';
 			s.parentNode.insertBefore(g,s)}(document,'script'));
-		</script>-->
+		</script>
 
 		<!-- CDN -->
 		<script src="https://cdn.firebase.com/v0/firebase.js"></script>
@@ -134,6 +73,10 @@
 		<!-- build:js(.tmp) scripts/main.js -->
 		<script src="scripts/main.js"></script>
 		<script src="scripts/services/users.js"></script>
+		<script src="scripts/services/tracks.js"></script>
+		<script src="scripts/services/playlists.js"></script>
+		<script src="scripts/controllers/login.js"></script>
+		<script src="scripts/controllers/playlist.js"></script>
 		<!-- endbuild -->
 
 	</body>

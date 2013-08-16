@@ -1,25 +1,27 @@
-window.app.factory('Users', ['angularFire', 'angularFireCollection', 'config', (angularFire, angularFireCollection, config) ->
-		
+window.app.factory('UserService', ['angularFire', 'angularFireCollection', 'config', '$rootScope', (angularFire, angularFireCollection, config, $rootScope) ->
+
+		auth = new FirebaseSimpleLogin(config.dbRef, (error, user) ->
+			if error
+				# TODO: handle errors
+				console.log error
+
+			else if user
+				$rootScope.user = user
+
+			return
+		)
+
 		UserService = {
 
 			# authentication with facebook
-			authenticate: () ->
-				simpleLogin = new FirebaseSimpleLogin(config.dbRef, (error, user) ->
-					if error
-						console.log error
-
-					else if user
-						console.log user
-
-					else
-						console.log 'User is logged out'
-
-					return
-				)
-				
-				simpleLogin.login 'facebook', { remember_me: true }
+			performLogin: () ->
+				auth.login 'facebook', { remember_me: true }
 				return
 
+			# logout
+			logout: () ->
+				auth.logout();
+				return
 
 			# fetch all users manually
 			all: () ->

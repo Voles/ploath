@@ -1,22 +1,36 @@
 # application module
 window.app = angular.module('app', ['firebase'])
 
-# controller
-window.app.controller('MyCtrl', ['$scope', '$rootScope', 'angularFire', 'config', 'Users', ($scope, $rootScope, angularFire, config, Users) ->
+# configuration
+window.app.config(['$routeProvider', ($routeProvider) ->
 
-	# test authentication
-	#Users.authenticate()
-	
-	angularFire(config.dbRef + '/playlists', $rootScope, 'playlists', {})
-	angularFire(config.dbRef + '/tracks', $rootScope, 'tracks', {})
-	console.log($rootScope)
 
-	# play
-	$scope.play = (trackId) ->
-		console.log 'Play track with id: ' + trackId
-		return
-		
-	return
+	$routeProvider
+
+	# playlists
+	.when( '/playlists', {
+		controller: 'PlaylistController',
+		templateUrl: 'views/playlist-overview.html'
+	})
+
+	# playlist detail
+	.when( '/playlists/:playlistId', {
+		controller: 'PlaylistController',
+		templateUrl: 'views/playlist-detail.html'
+	})
+
+	# login
+	.when({
+		controller: 'LoginController',
+		templateUrl: 'views/login.html'
+	})
+
+	# default route
+	.otherwise( {
+		controller: 'LoginController',
+		templateUrl: 'views/login.html'
+	})
+
 ])
 
 # configuration (via http://ericrohlfs.blogspot.nl/2013/03/constants-in-angularjs.html)
