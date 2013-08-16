@@ -22,7 +22,7 @@ window.app.factory('PlaylistService', ['$rootScope', 'config', 'angularFire', 'u
 
 			$rootScope.playlists[ generatedId ] = {
 				name: playlist.name,
-				tracks: []
+				tracks: {}
 			}
 
 			# TODO: add playlist to the user playlists

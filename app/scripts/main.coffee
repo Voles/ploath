@@ -53,4 +53,15 @@ window.app.constant('utilities', {
 			.replace(/[^a-z0-9-]+/g, "") 	# remove all non-alphanumeric characters except the hyphen
 			.replace(/[-]+/g, "-") 			# replace multiple instances of the hyphen with a single instance
 			.replace(/^-+|-+$/g, "") 		# trim leading and trailing hyphens
+
+	makeAngularSafe: (string) ->
+		return string
+			.toLowerCase()
+			.replace(/[\.]+/g, '')
+			.replace(/[#]+/g, '')
+			.replace(/[\$]+/g, '')
+			.replace(/[\/]+/g, '')
+			.replace(/[[]+/g, '')
+			.replace(/[\]]+/g, '')
+
 })

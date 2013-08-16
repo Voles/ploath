@@ -1,32 +1,55 @@
-window.app.factory('UserService', ['angularFire', 'angularFireCollection', 'config', '$rootScope', (angularFire, angularFireCollection, config, $rootScope) ->
+window.app.factory('UserService', ['angularFire', 'angularFireCollection', 'config', '$rootScope', 'utilities', (angularFire, angularFireCollection, config, $rootScope, utilities) ->
 
-		auth = new FirebaseSimpleLogin(config.dbRef, (error, user) ->
+	$rootScope.user = undefined
+
+	angularFire(config.dbRef + '/users', $rootScope, 'users', {})
+	
+	hasAccount = (id) ->
+		return if `typeof $rootScope.users[ id ] === 'undefined'` then false else true
+
+	clicked = false
+	auth = new FirebaseSimpleLogin(config.dbRef, (error, user) ->
+		if !clicked
+			console.log 'not clicked'
+
+		else
 			if error
 				# TODO: handle errors
 				console.log error
 
 			else if user
-				$rootScope.user = user
+				id = utilities.makeAngularSafe( user.username )
 
+				if !hasAccount( id )
+					$rootScope.users[ id ] = {
+						name: user.displayName,
+						facebookData: user,
+						playlists: {}
+					}
+
+				$rootScope.user = angularFire(config.dbRef + '/users/' + id, $rootScope, 'user', {})
+				return
+
+
+		clicked = false
+		return
+	)
+
+	# workaround, because the users aren't loaded fast enough for the check inside FirebaseSimpleLogin
+
+	UserService = {
+
+		# authentication with facebook
+		performLogin: () ->
+			clicked = true
+			auth.login 'facebook', { remember_me: true }
 			return
-		)
 
-		UserService = {
+		# logout
+		logout: () ->
+			auth.logout()
+			return
+	}
 
-			# authentication with facebook
-			performLogin: () ->
-				auth.login 'facebook', { remember_me: true }
-				return
-
-			# logout
-			logout: () ->
-				auth.logout();
-				return
-
-			# fetch all users manually
-			all: () ->
-				return angularFireCollection(config.dbRef.child('users'))
-		}
-
-		return UserService
+	return UserService
 ])
