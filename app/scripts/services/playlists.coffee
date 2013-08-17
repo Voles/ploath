@@ -25,6 +25,11 @@ window.app.factory('PlaylistService', ['$rootScope', 'config', 'angularFire', 'u
 				tracks: {}
 			}
 
+			if $rootScope.user.playlists
+				$rootScope.user.playlists[ generatedId ] = true
+			else
+				$rootScope.user.playlists = { generatedId : true }
+
 			# TODO: add playlist to the user playlists
 
 			return

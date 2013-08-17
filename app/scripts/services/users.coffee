@@ -27,7 +27,7 @@ window.app.factory('UserService', ['angularFire', 'angularFireCollection', 'conf
 						playlists: {}
 					}
 
-				$rootScope.user = angularFire(config.dbRef + '/users/' + id, $rootScope, 'user', {})
+				$rootScope.user = $rootScope.users[ id ]
 				return
 				
 		clicked = false
