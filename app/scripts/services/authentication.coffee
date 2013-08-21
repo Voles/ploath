@@ -25,6 +25,7 @@ window.app.factory('AuthService', ['angularFire', 'angularFireCollection', 'conf
 			# user is logged in
 			console.log user
 			AuthService.userId = user.id
+			$location.path('/playlists')
 
 		else
 			# no previous login saved

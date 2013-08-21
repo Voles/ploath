@@ -7,7 +7,6 @@ app.controller('LoginController', ['$scope', '$rootScope', 'UserService', '$loca
 	)
 	
 	$scope.login = () ->
-		UserService.performLogin()
-		return
-	
+		AuthService.login()
+		
 ])
