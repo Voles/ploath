@@ -1,4 +1,4 @@
-app.controller('LoginController', ['$scope', '$rootScope', 'UserService', '$location', ($scope, $rootScope, UserService, $location) ->
+app.controller('LoginController', ['$scope', '$rootScope', 'UserService', '$location', 'AuthService', ($scope, $rootScope, UserService, $location, AuthService) ->
 
 	$rootScope.$watch('user', () ->
 		if $rootScope.user

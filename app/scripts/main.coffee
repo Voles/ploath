@@ -3,8 +3,7 @@ window.app = angular.module('app', ['firebase'])
 
 # configuration
 window.app.config(['$routeProvider', ($routeProvider) ->
-
-
+	
 	$routeProvider
 
 	# playlist overview
