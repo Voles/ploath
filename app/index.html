@@ -27,6 +27,11 @@
 			<div class="navbar-inner">
 				<div class="container-fluid">
 					<a class="brand" href="#">Ploath</a>
+
+					<p class="navbar-text pull-right" ng-controller="UserController">
+						<a ng-click="logout()" class="navbar-link" ng-show="user">Logout</a>
+						<a ng-click="login()" class="navbar-link" ng-hide="user">Login</a>
+					</p>
 				</div>
 			</div>
 		</div>
@@ -84,6 +89,7 @@
 		<script src="scripts/controllers/playlist.js"></script>
 		<script src="scripts/controllers/track.js"></script>
 		<script src="scripts/controllers/controls.js"></script>
+		<script src="scripts/controllers/user.js"></script>
 		<!-- endbuild -->
 
 	</body>
