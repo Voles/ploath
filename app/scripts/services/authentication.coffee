@@ -1,9 +1,9 @@
-window.app.factory('AuthService', ['angularFire', 'angularFireCollection', 'config', '$rootScope', 'utilities', '$location', (angularFire, angularFireCollection, config, $rootScope, utilities, $location) ->
+window.app.factory('AuthService', ['angularFire', 'angularFireCollection', 'config', '$rootScope', 'utilities', '$location', 'UserService', (angularFire, angularFireCollection, config, $rootScope, utilities, $location, UserService) ->
 
 	console.log 'Init AuthService'
 
 	AuthService = {
-		userId: undefined,
+		user: false,
 		isChecked: false,
 
 		login: () ->
@@ -24,6 +24,43 @@ window.app.factory('AuthService', ['angularFire', 'angularFireCollection', 'conf
 		else if user
 			# user is logged in
 			console.log user
+
+			###
+			if UserService.hasAccount(user.id)
+				console.log 'jep'
+			else
+				console.log 'nop'
+			###
+
+			if UserService.usersLoaded
+				console.log $rootScope.users
+				console.log '# users known'
+				if UserService.hasAccount(user.id)
+					console.log 'jep'
+				else
+					console.log 'nop'
+			else
+				$rootScope.$watch 'users', () ->
+					if UserService.usersLoaded
+						if UserService.hasAccount(user.id)
+							console.log '2.'
+							AuthService.user = angularFire(config.dbRef + '/users/' + user.id, $rootScope, 'user', {})
+							$location.path('/playlists')
+						else
+							console.log '1.'
+							UserService.createAccount(user)
+							AuthService.isChecked = true
+							console.log config.dbRef + '/users/' + user.id
+							angularFire(config.dbRef + '/users/' + user.id, $rootScope, 'user', {})
+
+							$rootScope.$watch('users.' + user.id, () ->
+								console.log $rootScope.users['user.id']
+							)
+
+							#$rootScope.user.name = user['displayName'];
+							#AuthService.user.name = 'jo'
+							$location.path('/playlists')
+
 			AuthService.userId = user.id
 			$location.path('/playlists')
 
