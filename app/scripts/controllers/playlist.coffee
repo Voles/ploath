@@ -8,5 +8,9 @@ window.app.controller('PlaylistController', ['$scope', 'angularFire', 'config', 
 
 	$scope.add = (playlist) ->
 		PlaylistService.add(playlist)
+
+
+	$scope.logout = () ->
+		AuthService.logout()
 		
 ])
