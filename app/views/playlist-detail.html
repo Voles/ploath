@@ -1,12 +1,41 @@
-<div class="span3">
-	<h4 class="clearfix">
-		<a class="btn btn-mini" href="#/playlists"><i class="icon-chevron-left"></i></a> {{ playlist.name }} <a class="btn btn-mini pull-right" href="#"><i class="icon-edit"></i> Edit</a>
-	</h4>
-	<div class="well sidebar-nav">
-		<ul class="nav nav-list songs">
-			<li ng-repeat="(id, track) in playlist.tracks"><a ng-click="play(id)"><strong>{{ tracks[id].author }}</strong> - {{ tracks[id].title }}</a></li>
-		</ul>
+<div class="span3" ng-controller="PlaylistManagerController">
+
+	<div ng-hide="editmode">
+		<h4 class="clearfix">
+			<a class="btn btn-mini" href="#/playlists"><i class="icon-chevron-left"></i></a> {{ playlist.name }} <a class="btn btn-mini pull-right" ng-click="setEditmode(true)"><i class="icon-edit"></i> Edit</a>
+		</h4>
+		<div class="well sidebar-nav">
+			<ul class="nav nav-list songs">
+				<li ng-repeat="(id, track) in playlist.tracks"><a ng-click="play(id)"><strong>{{ tracks[id].author }}</strong> - {{ tracks[id].title }}</a></li>
+			</ul>
+		</div>
 	</div>
+
+	<div ng-show="editmode">
+		<form class="add-song">
+			<div class="input-append">
+				<input placeholder="Playlist name" ng-model="playlist.name" type="text" class="span10" />
+				<button class="btn btn-success" type="button" ng-click="setEditmode(false)">Done</button>
+			</div>
+		</form>
+		
+		<div class="well sidebar-nav">
+			<ul class="nav nav-list songs edit">
+				<li ng-repeat="(id, track) in playlist.tracks">
+					<strong>{{ tracks[id].author }}</strong> - {{ tracks[id].title }} <button class="pull-right remove"><i class="icon-remove"></i></button>
+				</li>
+			</ul>
+		</div>
+
+		<form class="add-song">
+			<div class="input-append">
+				<legend>Add song</legend>
+				<input placeholder="Paste the link here…" id="appendedInputButton" type="text" class="span10" />
+				<button class="btn" type="button">Add</button>
+			</div>
+		</form>
+	</div>
+
 </div>
 
 <div class="span9">
