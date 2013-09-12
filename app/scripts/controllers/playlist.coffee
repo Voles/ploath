@@ -12,5 +12,8 @@ window.app.controller('PlaylistController', ['$scope', 'angularFire', 'config', 
 
 	$scope.logout = () ->
 		AuthService.logout()
+
+	$scope.removeTrack = (trackId) ->
+		PlaylistService.removeTrack($routeParams.playlistId, trackId)
 		
 ])

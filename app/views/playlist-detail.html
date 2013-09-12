@@ -22,7 +22,7 @@
 		<div class="well sidebar-nav">
 			<ul class="nav nav-list songs edit">
 				<li ng-repeat="(id, track) in playlist.tracks">
-					<strong>{{ tracks[id].author }}</strong> - {{ tracks[id].title }} <button class="pull-right remove"><i class="icon-remove"></i></button>
+					<strong>{{ tracks[id].author }}</strong> - {{ tracks[id].title }} <button class="pull-right remove" ng-click="removeTrack(id)"><i class="icon-remove"></i></button>
 				</li>
 			</ul>
 		</div>

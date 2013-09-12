@@ -34,6 +34,9 @@ window.app.factory('PlaylistService', ['$rootScope', 'config', 'angularFire', 'u
 
 			return
 
+		removeTrack: (playlistId, trackId) ->
+			delete $rootScope.playlists[playlistId].tracks[trackId]
+
 	}
 	return PlaylistService
 ])
