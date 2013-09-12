@@ -30,8 +30,8 @@
 		<form class="add-song">
 			<div class="input-append">
 				<legend>Add song</legend>
-				<input placeholder="Paste the link here…" id="appendedInputButton" type="text" class="span10" />
-				<button class="btn" type="button">Add</button>
+				<input ng-model="track.link" placeholder="Paste the link here…" id="appendedInputButton" type="text" class="span10" />
+				<button ng-click="addTrack(track)" class="btn" type="button">Add</button>
 			</div>
 		</form>
 	</div>
